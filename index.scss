@@ -1,0 +1,445 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------------------------
+Responsive, Device Agnostic, Accessible, Aesthetic Design was the
+ultimate premise of this project.
+
+@url https://www.github.com/jillmnolan/TestProject
+
+Please be advised this project is licensed under the terms of the
+MIT license.
+
+@author: Jill M. Nolan (jill@samret.co)
+@access public
+----------------------------------------------------------------- */
+
+/*$font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Helvetica, Arial, Oxygen-Sans, Ubuntu, Cantarell,
+  "Helvetica Neue",sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol";*/
+
+
+/* ----------------------------------------------------------------
+Code Snippets to Automate via SASS
+------------------------------------------------------------------*/
+/* Code Snippets for regularly used web colors. */
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+/* Code Snippet for sans-serif fonts. */
+$sans-serif: (-apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol") !default;
+
+/* Code Snippet for monospace fonts. */
+$monospace: (SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace);
+
+/* Code Snippet for all browsers. */
+$breakpoint: (mobile: 320px,
+              tablet: 481px,
+              sm-screen: 769px,
+              lg-screen: 1025px,
+              xl-screen: 1201px) !default;
+
+/* Code Snippet for Default Style. */
+
+$em: (font-style: italic, line-height: inherit) !default;
+$strong: (font-weight: bolder, line-height: inherit) !default;
+$font: (font-size: 16px, font-weight: 400) !default;
+$image: (display: inline-block,
+  vertical-align: middle,
+  max-width: 100%,
+  height: auto,
+  -ms-interpolation-mode: bicubic,
+  object-fit: cover,
+  object-position: bottom,
+  border-style: none) !default;
+$fluid-image: (max-width: 100%, height: auto);
+$thumbnail-image: (max-width: 100%, height: auto, padding: 0.25rem,
+border-radius: 0.25rem) !default;
+$figure-image: (margin-bottom: 0.5rem, line-height: 1) !default;
+$p: (
+  margin-bottom: 1rem,
+  font-size: inherit,
+  line-height: 1.6,
+  text-rendering: optimizeLegibility);
+$div: (
+  background: $secondary,
+  flex-basis: 100%,
+  height: 100px,
+  margin-bottom: 0.5rem
+);
+
+/* Code Snippet for all devices.  */
+$media-expressions: (screen: "screen",
+                    print: "print",
+                    handheld: "handheld",
+                    landscape: "(orientation: landscape)",
+                    portrait: "(orientation: portrait",
+                    retina2x:
+                    ("(-webkit-min-device-pixel-ratio: 2)",
+                    "(min-resolution: 192dpi)",
+                    "(min-resolution: 2dppx)"),
+                    retina3x:
+                    ("(-webkit-min-device-pixel-ratio: 3)",
+                    "(min-resolution: 350dpi)",
+                    "(min-resolution: 3dppx)")) !default;
+
+$unit-intervals: ( "px": 1, "em": 0.01, "rem": 0.1, "": 0) !default;
+
+/*-------------------------------------------------------------------
+
+-------------------------------------------------------------------*/
+@-ms-viewport {
+  width: device-width;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: $light;
+  font: 100% $sans-serif;
+  min-height: 100%;
+  color: $dark;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.text { font-size: 16px; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }
+  }
+
+main {
+  background: $light;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+menu {
+  background: $light;
+  padding: 0.25rem;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
+
+span {
+  background: $secondary;
+  color: $light;
+  display: inline-block;
+  margin: 0.25rem;
+  padding: 0.5rem;
+}
+
+.column {
+  width: 100%;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li { display: inline-block; }
+  a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  clear: both;
+  max-width: 75rem;
+  height: 0;
+  margin: 1.25rem auto;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid $secondary;
+  border-left: 0;
+}
+
+figure { margin: 0; }
+
+blockquote {
+  margin: 0 0 1rem;
+  padding: 0.5625rem 1.25rem 0 1.1875rem;
+  border-left: 1px solid #cacaca;
+  blockquote p {
+    line-height: 1.6;
+    color: $secondary; }
+}
+
+.code-block {
+  border: 1px solid #cacaca;
+  background-color: $light;
+  font-family: $monospace;
+  font-weight: normal;
+  color: $dark;
+  display: block;
+  overflow: auto;
+  white-space: pre;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  cite {
+    display: block;
+    color: #8a8a8a;
+    font-size: 0.8125rem;
+  }
+  :before {
+    content: "— ";
+  }
+}
+
+a {
+  background-color: transparent;
+  line-height: inherit;
+  color: $primary;
+  text-decoration: none;
+  -webkit-text-decoration-skip: objects;
+  cursor: pointer;
+  hover: { color: $primary; }
+  focus: { color: $primary; }
+  img { border: 0; }
+}
+
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  bottom: -0.25em;
+}
+
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+progress { vertical-align: baseline; }
+
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+button {
+  padding: 0;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+      -moz-appearance: none;
+          appearance: none;
+  input { overflow: visible; }
+  select { text-transform: none; }
+  [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: button; }
+}
+
+.is-visible { display: block !important; }
+.is-hidden { display: none !important; }
+.hide { display: none !important; }
+.invisible { visibility: hidden; }
+[hidden] { display: none; }
+
+details { display: block; }
+summary { display: list-item; }
+
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  overflow: auto;
+  height: auto;
+  min-height: 50px;
+  max-width: 100%;
+  border-radius: 0;
+  textarea[rows] {
+    height: auto;
+  }
+}
+
+select {
+  height: 2.4375rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem;
+  -webkit-appearance: none;
+    -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #cacaca;
+  border-radius: 0;
+  background-color: $light;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: $dark;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28138, 138, 138%29'></polygon></svg>");
+  background-origin: content-box;
+  background-position: right -1rem center;
+  background-repeat: no-repeat;
+  background-size: 9px 6px;
+  padding-right: 1.5rem;
+  -webkit-transition: border-color 0.25s ease-in-out, -webkit-box-shadow 0.5s;
+  transition: border-color 0.25s ease-in-out, -webkit-box-shadow 0.5s;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out, -webkit-box-shadow 0.5s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  border-radius: 0;
+}
+
+label {
+  display: block;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.8;
+  color: #0a0a0a; }
+  label.middle {
+    margin: 0 0 1rem;
+    padding: 0.5625rem 0; }
+
+.form-error {
+  display: none;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: $danger;
+  .is-visible { display: block; }
+}
+
+.help-text {
+  margin-top: -0.5rem;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: #0a0a0a; }
+
+.grid-container {
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto; 
+    .fluid {
+      padding-right: 0.625rem;
+      padding-left: 0.625rem;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto; }
+    .full {
+      padding-right: 0;
+      padding-left: 0;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto; } }
+
+// Device Agnostic CSS
+
+
+
+/* Compiles to @media screen and (min-width: 320px) and (max-width: 480px) and (min-resolution: 192dpi) { ... } */
+@include media ("screen", ">=mobile", "<=tablet", "retina2x") {
+  //Insert code here ...
+}
+
+/* Compiles to @media screen and (min-width: 481px) and (max-width: 768px) and (min-resolution: 192dpi) { ... } */
+@include media ("screen", ">=tablet", "<=sm-screen", "retina2x") {
+  //Insert code here ...
+}
+
+/* Compiles to @media screen and (min-width: 769px) and (max-width: 1024px) and (min-resolution: 192dpi) { ... } */
+@include media ("screen", ">=sm-screen", "<=xl-screen", "retina2x") {
+  //Insert code here ..
+}
+
+/* Compiles to @media screen and (min-width: 780px) and (max-width: 1200px) and (min-resolution: 192dpi) { ... } */
+@include media ("screen", ">=lg-screen", "<=xl-screen", "retina2x") {
+  //Insert code here ..
+}
+
+
+/* Code snippet for printing webpages. */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    -webkit-print-color-adjust: economy;
+            color-adjust: economy;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    text-shadow: none !important; }
+  .show-for-print { display: block !important; }
+  .hide-for-print { display: none !important; }
+  table.show-for-print { display: table !important; }
+  thead.show-for-print { display: table-header-group !important; }
+  tbody.show-for-print { display: table-row-group !important; }
+  tr.show-for-print { display: table-row !important; }
+  td.show-for-print { display: table-cell !important; }
+  th.show-for-print { display: table-cell !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  .ir a:after,
+  a[href^='javascript:']:after,
+  a[href^='#']:after {
+    content: ''; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  pre, blockquote {
+    border: 1px solid #8a8a8a;
+    page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+  .print-break-inside { page-break-inside: auto; } 
+}
